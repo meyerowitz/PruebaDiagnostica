@@ -1,18 +1,21 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
-#include<windows.h>
-#include <chrono>
-#include <thread>
-#include <sstream>
-#include <algorithm>
+#include <windows.h>
+#include <string>
+
 
 using namespace std;
 
-
-
-	
-
+int contadorMax(string cadena) {
+     int contador = 0;
+    for (char c : cadena) {
+        if (c == 'E') {
+            contador++;
+        }
+    }
+    return contador;
+}
 	
 	class Menu{
 	
@@ -45,40 +48,14 @@ using namespace std;
 				cout<<"4) Para un programa en un lenguaje L, dado un cadena C escrito en L, muestre y cuente la\
 				ocurrencia de la palabra E en C ";
 				
-				std::string cadena;
+				string cadena;
 
-    			std::cout << "\n\nIngrese la cadena C por favor: ";
-    			std::getline(std::cin, cadena);
+    			cout << "\n\nIngrese la cadena C por favor: ";
+    			getline(cin, cadena);
+    			
+    			cout<<"\n\n"<< "Total de ocurrencias de 'e': "<< contadorMax(cadena);
 
-    			// Convertir la cadena a minúsculas para hacer la búsqueda insensible a mayúsculas/minúsculas
-    			std::string cadenaMinusculas = cadena;
-    			std::transform(cadenaMinusculas.begin(), cadenaMinusculas.end(), cadenaMinusculas.begin(), ::tolower);
-
-    			// Dividir la cadena en palabras
-    			std::stringstream ss(cadenaMinusculas);
-    			std::string palabra;
-    			std::vector<std::string> palabras;
-
-    			while (ss >> palabra) {
-        palabras.push_back(palabra);
-    }
-
-    // Contar y mostrar ocurrencias de la palabra "e"
-    int contador = 0;
-    for (const std::string& p : palabras) {
-        if (p == "e") {
-            contador++;
-            std::cout << "Ocurrencia encontrada: " << p << std::endl;
-        }
-    }
-
-    // Mostrar el número total de ocurrencias
-    std::cout << "Total de ocurrencias de 'e': " << contador << std::endl;
-
-				
-				volver();
-
-				
+				volver();	
 			 }
 			 
 			 void volver(){

@@ -2,10 +2,7 @@
 #include <cmath>
 #include <vector>
 #include<windows.h>
-#include <chrono>
-#include <thread>
 #include <stack>
-#include <cmath>
 #include <cctype>
 
 using namespace std;
@@ -19,15 +16,15 @@ void TiempoEspera( int punticos){
 }
 
 // Función para convertir un operando en notación científica a double
-double convertirOperando(const std::string& operando) {
+double convertirOperando(string operando) {
     double valor = 0.0;
     size_t posE = operando.find('E');
-    if (posE == std::string::npos) {
-        valor = std::stod(operando);
+    if (posE == string::npos) {
+        valor = stod(operando);
     } else {
-        double base = std::stod(operando.substr(0, posE));
-        int exponente = std::stoi(operando.substr(posE + 1));
-        valor = base * std::pow(10, exponente);
+        double base = stod(operando.substr(0, posE));
+        int exponente = stoi(operando.substr(posE + 1));
+        valor = base * pow(10, exponente);
     }
     return valor;
 }
@@ -47,6 +44,7 @@ double realizarOperacion(double operando1, double operando2, char operador) {
 double evaluarExpresion(const std::string& expresion) {
     std::vector<std::string> tokens; // Almacena los tokens de la expresión
     std::string tokenActual;
+    
     for (char c : expresion) {
         if (std::isdigit(c) || c == '.' || c == 'E' || c == '-') {
             tokenActual += c;

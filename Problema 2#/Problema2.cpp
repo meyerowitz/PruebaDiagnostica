@@ -2,13 +2,9 @@
 #include <cmath>
 #include <vector>
 #include<windows.h>
-#include <chrono>
-#include <thread>
 
 
 using namespace std;
-
-
 
 	
 	long factorial(int n) {

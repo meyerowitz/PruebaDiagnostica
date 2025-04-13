@@ -2,8 +2,6 @@
 #include <cmath>
 #include <vector>
 #include<windows.h>
-#include <chrono>
-#include <thread>
 #include <string>
 #include <regex>
 
@@ -20,7 +18,7 @@ using namespace std;
 
 bool validarFEN(const std::string& fen) {
     // Expresión regular para validar la notación FEN
-    std::regex fenRegex(
+    regex fenRegex(
         "^([rnbqkpRNBQKP1-8]+/){7}[rnbqkpRNBQKP1-8]+\\s" // Colocación de piezas
         "[wb]\\s"                                           // Lado a mover
         "(-|K?Q?k?q?)\\s"                                    // Disponibilidad de enroque
@@ -29,7 +27,7 @@ bool validarFEN(const std::string& fen) {
         "\\d+$"                                            // Número de jugada
     );
 
-    return std::regex_match(fen, fenRegex);
+    return regex_match(fen, fenRegex);
 }
 
 
