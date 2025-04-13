@@ -16,7 +16,7 @@ using namespace std;
 	}
 		
 
-bool validarFEN(const std::string& fen) {
+bool NotacionFen(string fen) {
     // Expresión regular para validar la notación FEN
     regex fenRegex(
         "^([rnbqkpRNBQKP1-8]+/){7}[rnbqkpRNBQKP1-8]+\\s" // Colocación de piezas
@@ -93,7 +93,7 @@ bool validarFEN(const std::string& fen) {
 				TiempoEspera(5);
 				cout<<"\n\n";
 				
-				cout <<"    "<< cadena << " :  " << (validarFEN(cadena) ? "Valido" : "Invalido")<<"\n";		
+				cout <<"    "<< cadena << " :  " << (NotacionFen(cadena) ? "Valido" : "Invalido")<<"\n";		
 				
 
 				cout<<"\t\n Inserta 1 para volver al menu, y cualquier otro para terminar la operacion: ";
